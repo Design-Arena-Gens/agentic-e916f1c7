@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.book-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.book-header {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.book-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.book-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.nav-button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.nav-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-number {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #495057;
+  min-width: 100px;
+  text-align: center;
+}
+
+.page-content {
+  padding: 60px;
+  min-height: 600px;
+  background: white;
+  line-height: 2;
+  font-size: 1.2rem;
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #764ba2;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 3px solid #f093fb;
+  padding-bottom: 15px;
+}
+
+.saying-quote {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-left: 5px solid #f5576c;
+  border-radius: 5px;
+}
+
+.saying-explanation {
+  margin: 20px 0;
+  color: #495057;
+  text-align: justify;
+}
+
+.toc-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  padding: 40px;
+}
+
+.toc-item {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid #667eea;
+}
+
+.toc-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+  border-left-color: #f5576c;
+}
+
+.toc-number {
+  font-weight: 700;
+  color: #764ba2;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .book-title {
+    font-size: 2rem;
+  }
+
+  .book-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .page-content {
+    padding: 30px 20px;
+    font-size: 1.1rem;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-button {
+    width: 100%;
+  }
+
+  .toc-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .navigation {
+    display: none;
+  }
+
+  .page-content {
+    min-height: auto;
+    page-break-after: always;
+  }
+}
